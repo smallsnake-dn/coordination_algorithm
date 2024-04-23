@@ -1,0 +1,18 @@
+<mapper namespace="com.example.mappers.PromotionMapper">
+
+    <!-- ... -->
+
+    <update id="updatePromotions" parameterType="java.util.List">
+        <foreach collection="list" item="promotion" separator=";">
+            UPDATE promotions
+            SET name = #{promotion.name},
+                description = #{promotion.description},
+                start_date = #{promotion.startDate},
+                end_date = #{promotion.endDate}
+            WHERE id = #{promotion.id}
+        </foreach>
+    </update>
+
+    <!-- ... -->
+
+</mapper>
