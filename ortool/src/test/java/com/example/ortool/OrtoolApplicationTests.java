@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.example.ortool;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class OrtoolApplicationTests {
 
 	@Test
 	void contextLoads() {

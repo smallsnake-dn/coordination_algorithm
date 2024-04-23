@@ -1,5 +1,4 @@
-package com.example.demo;
-
+package com.example.ortool;
 
 import com.google.ortools.Loader;
 import com.google.ortools.sat.CpModel;
@@ -11,11 +10,13 @@ import com.google.ortools.sat.LinearExpr;
 import com.google.ortools.sat.LinearExprBuilder;
 import com.google.ortools.sat.Literal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 /** Assignment problem. */
-public class Temp {
+public class OrtoolApplication1 {
     public static void main(String[] args) {
         Loader.loadNativeLibraries();
         // Data
@@ -24,24 +25,15 @@ public class Temp {
                 { 35, 85, 55, 20 },
                 { 35, 85, 55, 20 },
         };
-
-        int[] totalSizeMax = { 1, 2, 1 };
         int[][] times = { { 0, 10 }, { 11, 20 }, { 5, 25 }, { 5, 25 } };
         int[][][] workerShift = {
-                { // Worker 0
-                        { 0, 4 },
-                // { 13, 17 }
-                },
-                // { // Worker 1
-                // { 0, 11 },
-                // { 18, 31 }
-                // },
-                // { // Worker 2
-                // { 18, 31 },
-                // // { 15, 19 }
-                // }
+                { { 0, 4 } },
                 null, null
         };
+
+        HashMap<Integer, int[]> day_price = new HashMap<>();
+        day_price.put(100, new int[] { 0, 1 });
+
         final int numWorkers = costs.length;
         final int numTasks = costs[0].length;
 
@@ -57,16 +49,6 @@ public class Temp {
             for (int task : allTasks) {
                 x[worker][task] = model.newBoolVar("x[" + worker + "," + task + "]");
             }
-        }
-        // Additional variables and constraints for maximum tasks per worker
-        IntVar[] numTasksPerWorker = new IntVar[numWorkers];
-        for (int worker : allWorkers) {
-            numTasksPerWorker[worker] = model.newIntVar(0, totalSizeMax[worker], "numTasksWorker" + worker);
-            List<Literal> tasksForWorker = new ArrayList<>();
-            for (int task : allTasks) {
-                tasksForWorker.add(x[worker][task]);
-            }
-            model.addEquality(LinearExpr.sum(tasksForWorker.toArray(new Literal[0])), totalSizeMax[worker]);
         }
         // Additional variables and constraints for task scheduling
         for (int worker : allWorkers) {
@@ -94,6 +76,25 @@ public class Temp {
                         "worker-task" + task + worker));
             }
             model.addNoOverlap(lst);
+        }
+        
+        // booking by day
+        Set<Integer> keyDayPrice = day_price.keySet();
+        if (!keyDayPrice.isEmpty()) {
+            for (int price : keyDayPrice) {
+                LinearExprBuilder lst = LinearExpr.newBuilder();
+                LinearExprBuilder lst1 = LinearExpr.newBuilder();
+                for (int worker : day_price.get(price)) {
+                    Literal b = model.newBoolVar("name" + worker + price);
+                    for (int task : allTasks) {
+                        lst.addTerm(x[worker][task], costs[worker][task]);
+                        lst1.add(x[worker][task]);
+                    }
+                    model.addGreaterOrEqual(lst1, 2).onlyEnforceIf(b);
+                    model.addGreaterThan(lst, price).onlyEnforceIf(b);
+                    model.addLessOrEqual(lst1, 1).onlyEnforceIf(b.not());
+                }
+            }
         }
         // Each task is assigned to exactly one worker.
         for (int task : allTasks) {
