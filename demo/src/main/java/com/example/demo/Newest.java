@@ -56,7 +56,6 @@ public class Newest {
 
     final int[] allWorkers = IntStream.range(0, numWorkers).toArray();
     final int[] allTasks = IntStream.range(0, numTasks).toArray();
-    LinearExprBuilder obj = LinearExpr.newBuilder();
 
     // Model
     CpModel model = new CpModel();
@@ -94,7 +93,41 @@ public class Newest {
       model.addNoOverlap(lst);
     }
 
+    
+
+
+    // thue xe theo ngay
+    // chi ap dung cho các nha van chuyen la doi tac
+    Set<Integer> keyDayPrice = day_price.keySet();
+    if (!keyDayPrice.isEmpty()) {
+      for (int price : keyDayPrice) {
+        LinearExprBuilder lst = LinearExpr.newBuilder();
+        LinearExprBuilder lst1 = LinearExpr.newBuilder();
+        for (int worker : day_price.get(price)) {
+          Literal b = model.newBoolVar("name" + worker + price);
+          for (int task : allTasks) {
+            lst.addTerm(x[worker][task], costs[worker][task]);
+            lst1.add(x[worker][task]);
+          }
+          model.addGreaterOrEqual(lst1, 2).onlyEnforceIf(b);
+          model.addGreaterThan(lst, price).onlyEnforceIf(b);
+          model.addLessOrEqual(lst1, 1).onlyEnforceIf(b.not());
+        }
+      }
+    }
+
+    // Each task is assigned to exactly one worker.
+    for (int task : allTasks) {
+      List<Literal> workers = new ArrayList<>();
+      for (int worker : allWorkers) {
+        workers.add(x[worker][task]);
+      }
+      model.addExactlyOne(workers);
+    }
+
     // % load
+    LinearExprBuilder loadObj = LinearExpr.newBuilder();
+
     for (int j = 0; j < resource.length; j++) {
       LinearExprBuilder lst = LinearExpr.newBuilder();
       // List<Literal> lst = new ArrayList<>();
@@ -128,46 +161,16 @@ public class Newest {
       }
       model.addGreaterOrEqual(lst, real_percent);
       // model.addEquality(optimize_val, 0);
-      obj.add(optimize_val);
-    }
-
-
-    // thue xe theo ngay
-    // chi ap dung cho các nha van chuyen la doi tac
-    Set<Integer> keyDayPrice = day_price.keySet();
-    if (!keyDayPrice.isEmpty()) {
-      for (int price : keyDayPrice) {
-        LinearExprBuilder lst = LinearExpr.newBuilder();
-        LinearExprBuilder lst1 = LinearExpr.newBuilder();
-        for (int worker : day_price.get(price)) {
-          Literal b = model.newBoolVar("name" + worker + price);
-          for (int task : allTasks) {
-            lst.addTerm(x[worker][task], costs[worker][task]);
-            lst1.add(x[worker][task]);
-          }
-          model.addGreaterOrEqual(lst1, 2).onlyEnforceIf(b);
-          model.addGreaterThan(lst, price).onlyEnforceIf(b);
-          model.addLessOrEqual(lst1, 1).onlyEnforceIf(b.not());
-        }
-      }
-    }
-
-    // Each task is assigned to exactly one worker.
-    for (int task : allTasks) {
-      List<Literal> workers = new ArrayList<>();
-      for (int worker : allWorkers) {
-        workers.add(x[worker][task]);
-      }
-      model.addExactlyOne(workers);
+      loadObj.add(optimize_val);
     }
 
     // Objective
-    // LinearExprBuilder obj = LinearExpr.newBuilder();
-    // for (int worker : allWorkers) {
-    //   for (int task : allTasks) {
-    //     obj.addTerm(x[worker][task], costs[worker][task]);
-    //   }
-    // }
+    LinearExprBuilder obj = LinearExpr.newBuilder();
+    for (int worker : allWorkers) {
+      for (int task : allTasks) {
+        obj.addTerm(x[worker][task], costs[worker][task]);
+      }
+    }
     model.minimize(obj);
 
     // Solve

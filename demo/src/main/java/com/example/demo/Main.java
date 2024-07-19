@@ -30,6 +30,8 @@ public class Main {
         // Tạo solver
         CpSolver solver = new CpSolver();
 
+
+        // System.out.println(1/0);
         // Giải quyết mô hình
         CpSolverStatus status = solver.solve(model);
 

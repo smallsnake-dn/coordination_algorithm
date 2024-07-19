@@ -1,0 +1,650 @@
+{
+    "routes" : [
+    {
+        "routeId": "1",
+        "vehicleTypeId": 1,
+        "beginAddress": "Quận 7",
+        "endAddress": "Quận 4",
+        "transportFormId": 1,
+        "routeLength": 25,
+        "beginTime": 25200000,
+        "endTime": 64800000,
+        "coordinatorStoreId": 2,
+        "stopLocations": [
+            {
+                "stopLocationId": "7",
+                "routeId": "1",
+                "stopIndex": 1,
+                "stopAddress": "Phường Tân Thuận - Quận 7",
+                "shipmentOrders": [
+                    {
+                        "shipmentOrderId": "6",
+                        "serviceTypeId": 2,
+                        "stopLocationId": "7",
+                        "transportFromId": 3,
+                        "senderStoreId": 2,
+                        "receiveAddress": "Q4",
+                        "coordinatorStoreId": 3,
+                        "collectionMoney": 500,
+                        "shipmentOrderItems": [
+                            {
+                                "shipmentOrderItemId": 6,
+                                "shipmentOrderId": "6",
+                                "productId": 6,
+                                "price": 16,
+                                "quantity": 2
+                            },
+                            {
+                                "shipmentOrderItemId": 7,
+                                "shipmentOrderId": "6",
+                                "productId": 6,
+                                "price": 15,
+                                "quantity": 3
+                            }
+                        ]
+                    },
+                    {
+                        "shipmentOrderId": "7",
+                        "serviceTypeId": 2,
+                        "stopLocationId": "7",
+                        "transportFromId": 3,
+                        "senderStoreId": 2,
+                        "receiveAddress": "Q4",
+                        "coordinatorStoreId": 3,
+                        "collectionMoney": 250,
+                        "shipmentOrderItems": [
+                            {
+                                "shipmentOrderItemId": 9,
+                                "shipmentOrderId": "7",
+                                "productId": 6,
+                                "price": 12,
+                                "quantity": 2
+                            },
+                            {
+                                "shipmentOrderItemId": 10,
+                                "shipmentOrderId": "7",
+                                "productId": 6,
+                                "price": 11,
+                                "quantity": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "stopLocationId": "8",
+                "routeId": "1",
+                "stopIndex": 2,
+                "stopAddress": "Quận 4",
+                "shipmentOrders": [
+                    {
+                        "shipmentOrderId": "8",
+                        "serviceTypeId": 2,
+                        "stopLocationId": "8",
+                        "transportFromId": 3,
+                        "senderStoreId": 3,
+                        "receiveAddress": "Q4",
+                        "coordinatorStoreId": 3,
+                        "collectionMoney": 200,
+                        "shipmentOrderItems": [
+                            {
+                                "shipmentOrderItemId": 11,
+                                "shipmentOrderId": "8",
+                                "productId": 6,
+                                "price": 7.9,
+                                "quantity": 2
+                            },
+                            {
+                                "shipmentOrderItemId": 12,
+                                "shipmentOrderId": "8",
+                                "productId": 6,
+                                "price": 1,
+                                "quantity": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "stopLocationId": "9",
+                "routeId": "1",
+                "stopIndex": 3,
+                "stopAddress": "Quận 4",
+                "shipmentOrders": [
+                    {
+                        "shipmentOrderId": "9",
+                        "serviceTypeId": 2,
+                        "stopLocationId": "9",
+                        "transportFromId": 1,
+                        "senderStoreId": 3,
+                        "receiveAddress": "Q4",
+                        "coordinatorStoreId": 3,
+                        "collectionMoney": 150,
+                        "shipmentOrderItems": [
+                            {
+                                "shipmentOrderItemId": 13,
+                                "shipmentOrderId": "9",
+                                "productId": 6,
+                                "price": 4,
+                                "quantity": 2
+                            },
+                            {
+                                "shipmentOrderItemId": 14,
+                                "shipmentOrderId": "9",
+                                "productId": 6,
+                                "price": 3,
+                                "quantity": 3
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+        {
+            "routeId": "2",
+            "vehicleTypeId": 2,
+            "beginAddress": "Quận 1",
+            "endAddress": "Quận 3",
+            "transportFormId": 1,
+            "routeLength": 15,
+            "beginTime": 25200000,
+            "endTime": 36000000,
+            "coordinatorStoreId": 2,
+            "stopLocations": [
+                {
+                    "stopLocationId": "10",
+                    "routeId": "2",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường Bến Nghé - Quận 1",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "10",
+                            "serviceTypeId": 2,
+                            "stopLocationId": "10",
+                            "transportFromId": 3,
+                            "senderStoreId": 3,
+                            "receiveAddress": "Q3",
+                            "coordinatorStoreId": 2,
+                            "collectionMoney": 300,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 15,
+                                    "shipmentOrderId": "10",
+                                    "productId": 7,
+                                    "price": 20,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 16,
+                                    "shipmentOrderId": "10",
+                                    "productId": 7,
+                                    "price": 25,
+                                    "quantity": 2
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "stopLocationId": "11",
+                    "routeId": "2",
+                    "stopIndex": 2,
+                    "stopAddress": "Quận 3",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "11",
+                            "serviceTypeId": 2,
+                            "stopLocationId": "11",
+                            "transportFromId": 2,
+                            "senderStoreId": 3,
+                            "receiveAddress": "Q3",
+                            "coordinatorStoreId": 2,
+                            "collectionMoney": 150,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 17,
+                                    "shipmentOrderId": "11",
+                                    "productId": 7,
+                                    "price": 30,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 18,
+                                    "shipmentOrderId": "11",
+                                    "productId": 7,
+                                    "price": 35,
+                                    "quantity": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "3",
+            "vehicleTypeId": 1,
+            "beginAddress": "Quận 2",
+            "endAddress": "Quận Bình Thạnh",
+            "transportFormId": 2,
+            "routeLength": 10,
+            "beginTime": 25200000,
+            "endTime": 43200000,
+            "coordinatorStoreId": 2,
+            "stopLocations": [
+                {
+                    "stopLocationId": "12",
+                    "routeId": "3",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường Thảo Điền - Quận 2",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "12",
+                            "serviceTypeId": 3,
+                            "stopLocationId": "12",
+                            "transportFromId": 4,
+                            "senderStoreId": 4,
+                            "receiveAddress": "Quận Bình Thạnh",
+                            "coordinatorStoreId": 5,
+                            "collectionMoney": 400,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 19,
+                                    "shipmentOrderId": "12",
+                                    "productId": 8,
+                                    "price": 50,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 20,
+                                    "shipmentOrderId": "12",
+                                    "productId": 8,
+                                    "price": 55,
+                                    "quantity": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "4",
+            "vehicleTypeId": 2,
+            "beginAddress": "Quận 5",
+            "endAddress": "Quận 6",
+            "transportFormId": 1,
+            "routeLength": 8,
+            "beginTime": 43200000,
+            "endTime": 72000000,
+            "coordinatorStoreId": 2,
+            "stopLocations": [
+                {
+                    "stopLocationId": "13",
+                    "routeId": "4",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường 4 - Quận 5",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "13",
+                            "serviceTypeId": 2,
+                            "stopLocationId": "13",
+                            "transportFromId": 5,
+                            "senderStoreId": 5,
+                            "receiveAddress": "Q6",
+                            "coordinatorStoreId": 6,
+                            "collectionMoney": 100,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 21,
+                                    "shipmentOrderId": "13",
+                                    "productId": 9,
+                                    "price": 60,
+                                    "quantity": 2
+                                },
+                                {
+                                    "shipmentOrderItemId": 22,
+                                    "shipmentOrderId": "13",
+                                    "productId": 9,
+                                    "price": 65,
+                                    "quantity": 3
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "5",
+            "vehicleTypeId": 1,
+            "beginAddress": "Quận 8",
+            "endAddress": "Quận 10",
+            "transportFormId": 2,
+            "routeLength": 12,
+            "beginTime": 43200000,
+            "endTime": 79200000,
+            "coordinatorStoreId": 2,
+            "stopLocations": [
+                {
+                    "stopLocationId": "14",
+                    "routeId": "5",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường 8 - Quận 8",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "14",
+                            "serviceTypeId": 3,
+                            "stopLocationId": "14",
+                            "transportFromId": 6,
+                            "senderStoreId": 6,
+                            "receiveAddress": "Q10",
+                            "coordinatorStoreId": 7,
+                            "collectionMoney": 500,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 23,
+                                    "shipmentOrderId": "14",
+                                    "productId": 10,
+                                    "price": 70,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 24,
+                                    "shipmentOrderId": "14",
+                                    "productId": 10,
+                                    "price": 75,
+                                    "quantity": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "6",
+            "vehicleTypeId": 2,
+            "beginAddress": "Quận 11",
+            "endAddress": "Quận Tân Bình",
+            "transportFormId": 1,
+            "routeLength": 14,
+            "beginTime": 54000000,
+            "endTime": 79200000,
+            "coordinatorStoreId": 2,
+            "stopLocations": [
+                {
+                    "stopLocationId": "15",
+                    "routeId": "6",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường 11 - Quận 11",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "15",
+                            "serviceTypeId": 2,
+                            "stopLocationId": "15",
+                            "transportFromId": 7,
+                            "senderStoreId": 7,
+                            "receiveAddress": "QTB",
+                            "coordinatorStoreId": 8,
+                            "collectionMoney": 250,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 25,
+                                    "shipmentOrderId": "15",
+                                    "productId": 11,
+                                    "price": 80,
+                                    "quantity": 2
+                                },
+                                {
+                                    "shipmentOrderItemId": 26,
+                                    "shipmentOrderId": "15",
+                                    "productId": 11,
+                                    "price": 85,
+                                    "quantity": 3
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "7",
+            "vehicleTypeId": 1,
+            "beginAddress": "Quận Tân Phú",
+            "endAddress": "Quận Bình Tân",
+            "transportFormId": 2,
+            "routeLength": 9,
+            "beginTime": 25200000,
+            "endTime": 79200000,
+            "coordinatorStoreId": 2,
+            "stopLocations": [
+                {
+                    "stopLocationId": "16",
+                    "routeId": "7",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường 13 - Quận Tân Phú",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "16",
+                            "serviceTypeId": 3,
+                            "stopLocationId": "16",
+                            "transportFromId": 8,
+                            "senderStoreId": 8,
+                            "receiveAddress": "Quận Bình Tân",
+                            "coordinatorStoreId": 9,
+                            "collectionMoney": 600,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 27,
+                                    "shipmentOrderId": "16",
+                                    "productId": 12,
+                                    "price": 90,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 28,
+                                    "shipmentOrderId": "16",
+                                    "productId": 12,
+                                    "price": 95,
+                                    "quantity": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "8",
+            "vehicleTypeId": 2,
+            "beginAddress": "Quận Gò Vấp",
+            "endAddress": "Quận Phú Nhuận",
+            "transportFormId": 1,
+            "routeLength": 11,
+            "beginTime": 64800000,
+            "endTime": 79200000,
+            "coordinatorStoreId": 2,
+            "stopLocations": [
+                {
+                    "stopLocationId": "17",
+                    "routeId": "8",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường 14 - Quận Gò Vấp",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "17",
+                            "serviceTypeId": 2,
+                            "stopLocationId": "17",
+                            "transportFromId": 9,
+                            "senderStoreId": 9,
+                            "receiveAddress": "QPN",
+                            "coordinatorStoreId": 10,
+                            "collectionMoney": 300,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 29,
+                                    "shipmentOrderId": "17",
+                                    "productId": 13,
+                                    "price": 100,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 30,
+                                    "shipmentOrderId": "17",
+                                    "productId": 13,
+                                    "price": 105,
+                                    "quantity": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "9",
+            "vehicleTypeId": 1,
+            "beginAddress": "Quận Phú Nhuận",
+            "endAddress": "Quận 1",
+            "transportFormId": 2,
+            "routeLength": 7,
+            "beginTime": 25200000,
+            "endTime": 82800000,
+            "coordinatorStoreId": 2,
+            "stopLocations": [
+                {
+                    "stopLocationId": "18",
+                    "routeId": "9",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường 15 - Quận Phú Nhuận",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "18",
+                            "serviceTypeId": 3,
+                            "stopLocationId": "18",
+                            "transportFromId": 10,
+                            "senderStoreId": 10,
+                            "receiveAddress": "Q1",
+                            "coordinatorStoreId": 11,
+                            "collectionMoney": 700,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 31,
+                                    "shipmentOrderId": "18",
+                                    "productId": 14,
+                                    "price": 110,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 32,
+                                    "shipmentOrderId": "18",
+                                    "productId": 14,
+                                    "price": 115,
+                                    "quantity": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "10",
+            "vehicleTypeId": 2,
+            "beginAddress": "Quận 1",
+            "endAddress": "Quận 2",
+            "transportFormId": 1,
+            "routeLength": 13,
+            "beginTime": 1717045094504,
+            "endTime": 1717046094504,
+            "coordinatorStoreId": 11,
+            "stopLocations": [
+                {
+                    "stopLocationId": "19",
+                    "routeId": "10",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường Đa Kao - Quận 1",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "19",
+                            "serviceTypeId": 2,
+                            "stopLocationId": "19",
+                            "transportFromId": 11,
+                            "senderStoreId": 11,
+                            "receiveAddress": "Q2",
+                            "coordinatorStoreId": 12,
+                            "collectionMoney": 400,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 33,
+                                    "shipmentOrderId": "19",
+                                    "productId": 15,
+                                    "price": 120,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 34,
+                                    "shipmentOrderId": "19",
+                                    "productId": 15,
+                                    "price": 125,
+                                    "quantity": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "routeId": "11",
+            "vehicleTypeId": 1,
+            "beginAddress": "Quận 3",
+            "endAddress": "Quận 5",
+            "transportFormId": 2,
+            "routeLength": 14,
+            "beginTime": 1717046194504,
+            "endTime": 1717047194504,
+            "coordinatorStoreId": 12,
+            "stopLocations": [
+                {
+                    "stopLocationId": "20",
+                    "routeId": "11",
+                    "stopIndex": 1,
+                    "stopAddress": "Phường 1 - Quận 3",
+                    "shipmentOrders": [
+                        {
+                            "shipmentOrderId": "20",
+                            "serviceTypeId": 3,
+                            "stopLocationId": "20",
+                            "transportFromId": 12,
+                            "senderStoreId": 12,
+                            "receiveAddress": "Q5",
+                            "coordinatorStoreId": 13,
+                            "collectionMoney": 800,
+                            "shipmentOrderItems": [
+                                {
+                                    "shipmentOrderItemId": 35,
+                                    "shipmentOrderId": "20",
+                                    "productId": 16,
+                                    "price": 130,
+                                    "quantity": 1
+                                },
+                                {
+                                    "shipmentOrderItemId": 36,
+                                    "shipmentOrderId": "20",
+                                    "productId": 16,
+                                    "price": 135,
+                                    "quantity": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+]
+}

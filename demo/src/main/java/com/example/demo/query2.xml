@@ -1,0 +1,136 @@
+<insert id="insert" parameterType="com.mwg.app.entities.promotion.BuyConditionFloat" useGeneratedKeys="true"
+            keyProperty="floatBuyConditionListValueId">
+        INSERT INTO promotionengine.pe_buycondition_float (floatbuyconditionlistvalueid, promotionid, buyconditionid, buyconditionfloatkey,
+                                                           buyconditionfloatvalue, createduser, createddate,
+                                                           updateduser, updateddate, isdeleted,
+                                                           deleteduser, deleteddate, cdc_version, cdc_timestamp)
+        VALUES (#{floatBuyConditionListValueId, jdbcType=BIGINT}, #{promotionId, jdbcType=BIGINT},
+                #{buyConditionId, jdbcType=BIGINT}, #{buyConditionFloatKey, jdbcType=VARCHAR},
+                #{buyConditionFloatValue, jdbcType=DOUBLE}, #{createdUser, jdbcType=VARCHAR},
+                #{createdDate, jdbcType=TIMESTAMP}, #{updatedUser, jdbcType=VARCHAR},
+                #{updatedDate, jdbcType=TIMESTAMP}, #{isDeleted, jdbcType=BOOLEAN},
+                #{deletedUser, jdbcType=VARCHAR}, #{deletedDate, jdbcType=TIMESTAMP},
+                #{cdcVersion, jdbcType=INTEGER}, #{cdcTimestamp, jdbcType=TIMESTAMP})
+    </insert>
+
+
+    <insert id="insert">
+        INSERT INTO promotionengine.pe_buycondition_int
+        (
+        intbuyconditionlistvalueid,
+        promotionid,
+        buyconditionid,
+        buyconditionintkey,
+        buyconditionintvalue,
+        createduser,
+        createddate,
+        updateduser,
+        updateddate,
+        isdeleted,
+        deleteduser,
+        deleteddate,
+        cdc_version,
+        cdc_timestamp
+        )
+        <foreach collection="values" item="value" separator=";">
+            VALUES (
+            nextval(#{seq}::regclass),
+            #{obj.intBuyConditionListValueId, jdbcType=BIGINT},
+            #{obj.promotionId, jdbcType=BIGINT},
+            #{obj.buyConditionId, jdbcType=BIGINT},
+            #{obj.buyConditionIntKey, jdbcType=VARCHAR},
+            CAST(#{value} AS INTEGER),
+            #{obj.createdUser, jdbcType=VARCHAR},
+            #{obj.createdDate, jdbcType=TIMESTAMP},
+            #{obj.updatedUser, jdbcType=VARCHAR},
+            #{obj.updatedDate, jdbcType=TIMESTAMP},
+            #{obj.isDeleted, jdbcType=BOOLEAN},
+            #{obj.deletedUser, jdbcType=VARCHAR},
+            #{obj.deletedDate, jdbcType=TIMESTAMP},
+            #{obj.cdcVersion, jdbcType=INTEGER},
+            #{obj.cdcTimestamp, jdbcType=TIMESTAMP}
+            )
+        </foreach>
+    </insert>
+
+
+    <insert id="insert">
+        INSERT INTO promotionengine.pe_buycondition_int
+        (
+        intbuyconditionlistvalueid,
+        promotionid,
+        buyconditionid,
+        buyconditionintkey,
+        buyconditionintvalue,
+        createduser,
+        createddate,
+        updateduser,
+        updateddate,
+        isdeleted,
+        deleteduser,
+        deleteddate,
+        cdc_version,
+        cdc_timestamp
+        )
+        VALUES
+        <foreach collection="values" item="value" separator=",">
+            (
+            nextval(#{seq}::regclass),
+            #{obj.intBuyConditionListValueId},
+            #{obj.promotionId},
+            #{obj.buyConditionId},
+            #{obj.buyConditionIntKey},
+            #{1},
+            #{obj.createdUser},
+            #{obj.createdDate},
+            #{obj.updatedUser},
+            #{obj.updatedDate},
+            #{obj.isDeleted},
+            #{obj.deletedUser},
+            #{obj.deletedDate},
+            #{obj.cdcVersion},
+            #{obj.cdcTimestamp}
+            )
+        </foreach>
+    </insert>
+
+
+     <insert id="insert">
+        INSERT INTO promotionengine.pe_buycondition_int
+        (
+        intbuyconditionlistvalueid,
+        promotionid,
+        buyconditionid,
+        buyconditionintkey,
+        buyconditionintvalue,
+        createduser,
+        createddate,
+        updateduser,
+        updateddate,
+        isdeleted,
+        deleteduser,
+        deleteddate,
+        cdc_version,
+        cdc_timestamp
+        )
+        VALUES
+        <foreach collection="values" item="value" separator=",">
+            (
+            nextval(#{seq}::regclass),
+            #{obj.intBuyConditionListValueId},
+            #{obj.promotionId},
+            #{obj.buyConditionId},
+            #{obj.buyConditionIntKey},
+            1,
+            #{obj.createdUser},
+            #{obj.createdDate},
+            #{obj.updatedUser},
+            #{obj.updatedDate},
+            #{obj.isDeleted},
+            #{obj.deletedUser},
+            #{obj.deletedDate},
+            #{obj.cdcVersion},
+            #{obj.cdcTimestamp}
+            )
+        </foreach>
+    </insert>
