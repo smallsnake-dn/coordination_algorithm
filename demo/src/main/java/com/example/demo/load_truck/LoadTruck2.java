@@ -31,8 +31,8 @@ public class LoadTruck2 {
                 { 10, 5, 10, 1 }
         };
 
-        int MAX_LENGTH = 100;
-        int MAX_WIDTH = 100;
+        int MAX_LENGTH = 10;
+        int MAX_WIDTH = 5;
         int MAX_HEIGHT = 100;
 
         // Model
@@ -148,9 +148,16 @@ public class LoadTruck2 {
                 model.addLessThan(oIntVarItems.get(j)[0], oIntVarItems.get(i)[0]).onlyEnforceIf(bxL);
                 model.addLessThan(intVarItems.get(j)[0], oIntVarItems.get(i)[0]).onlyEnforceIf(bxL);
                 Literal bxM = model.newBoolVar("null");
-                model.addEquality(bxM, model.trueLiteral()).onlyEnforceIf(new Literal[] {bxG.not(), bxL.not(), xf});
-                // model.addBoolOr(new Literal[] {bxG, bxL, bxM});
-                bGLM.add(new Literal[] {bxG, bxL, bxM});
+                model.addEquality(bxM, model.trueLiteral()).onlyEnforceIf(new Literal[] {bxG.not(), bxL.not(), xf.not()});
+                model.addBoolOr(new Literal[] {bxG, bxL, bxM, xf});
+                bGLM.add(new Literal[] {bxG, bxL, bxM, xf});
+                // model.addEquality(xf, model.falseLiteral());
+                // model.addEquality(xf, model.falseLiteral()).onlyEnforceIf(new Literal[] {bY.not(), bZ.not()});
+                model.addEquality(bX, _bX);
+                model.addEquality(bY, _bY);
+                model.addEquality(bZ, _bZ);
+                // model.addEquality(xf, model.falseLiteral()).onlyEnforceIf(new Literal[] {bY});
+                // model.addEquality(xf, model.falseLiteral()).onlyEnforceIf(new Literal[] {bZ});
 
                 
                 
@@ -162,9 +169,12 @@ public class LoadTruck2 {
                 model.addLessThan(oIntVarItems.get(j)[1], oIntVarItems.get(i)[1]).onlyEnforceIf(byL);
                 model.addLessThan(intVarItems.get(j)[1], oIntVarItems.get(i)[1]).onlyEnforceIf(byL);
                 Literal byM = model.newBoolVar("null");
-                model.addEquality(byM, model.trueLiteral()).onlyEnforceIf(new Literal[] {byG.not(), byL.not(), yf});
-                model.addBoolOr(new Literal[] {byG, byL, byM});
-                bGLM.add(new Literal[] {byG, byL, byM});
+                model.addEquality(byM, model.trueLiteral()).onlyEnforceIf(new Literal[] {byG.not(), byL.not(), yf.not()});
+                model.addBoolOr(new Literal[] {byG, byL, byM, yf});
+                bGLM.add(new Literal[] {byG, byL, byM, yf});
+                // model.addEquality(yf, model.falseLiteral());
+                // model.addEquality(yf, model.falseLiteral()).onlyEnforceIf(new Literal[] {bX});
+                // model.addEquality(yf, model.falseLiteral()).onlyEnforceIf(new Literal[] {bZ});
 
                 
                 
@@ -176,9 +186,11 @@ public class LoadTruck2 {
                 model.addLessThan(oIntVarItems.get(j)[2], oIntVarItems.get(i)[2]).onlyEnforceIf(bzL);
                 model.addLessThan(intVarItems.get(j)[2], oIntVarItems.get(i)[2]).onlyEnforceIf(bzL);
                 Literal bzM = model.newBoolVar("null");
-                model.addEquality(bzM, model.trueLiteral()).onlyEnforceIf(new Literal[] {bzG.not(), bzL.not(), zf});
-                model.addBoolOr(new Literal[] {bzG, bzL, bzM});
-                bGLM.add(new Literal[] {bzG, bzL, bzM});
+                model.addEquality(bzM, model.trueLiteral()).onlyEnforceIf(new Literal[] {bzG.not(), bzL.not(), zf.not()});
+                model.addBoolOr(new Literal[] {bzG, bzL, bzM, zf});
+                bGLM.add(new Literal[] {bzG, bzL, bzM, zf});
+                // model.addEquality(zf, model.falseLiteral()).onlyEnforceIf(new Literal[] {bY});
+                // model.addEquality(zf, model.falseLiteral()).onlyEnforceIf(new Literal[] {bX});
 
                 // model.addEquality(bX, model.trueLiteral()).onlyEnforceIf(new Literal[] {bxG.not(), bxL.not(), bxM, bY.not(), _bZ.not()});
                 // model.addEquality(_bX, model.trueLiteral()).onlyEnforceIf(new Literal[] {bxG.not(), bxL.not(), bxM, bY.not(), _bZ.not()});
@@ -192,27 +204,34 @@ public class LoadTruck2 {
                 
                 
                 model.addEquality(bX, model.trueLiteral()).onlyEnforceIf(new Literal[] {bxG.not(), bxL.not(), bxM});
-                model.addEquality(_bX, model.trueLiteral()).onlyEnforceIf(new Literal[] {bxG.not(), bxL.not(), bxM});
+                // model.addEquality(_bX, model.trueLiteral()).onlyEnforceIf(new Literal[] {bxG.not(), bxL.not(), bxM});
 
                 model.addEquality(bY, model.trueLiteral()).onlyEnforceIf(new Literal[] {byG.not(), byL.not(), byM});
-                model.addEquality(_bY, model.trueLiteral()).onlyEnforceIf(new Literal[] {byG.not(), byL.not(), byM});
+                // model.addEquality(_bY, model.trueLiteral()).onlyEnforceIf(new Literal[] {byG.not(), byL.not(), byM});
 
                 model.addEquality(bZ, model.trueLiteral()).onlyEnforceIf(new Literal[] {bzG.not(), bzL.not(), bzM});
-                model.addEquality(_bZ, model.trueLiteral()).onlyEnforceIf(new Literal[] {bzG.not(), bzL.not(), bzM});
+                // model.addEquality(_bZ, model.trueLiteral()).onlyEnforceIf(new Literal[] {bzG.not(), bzL.not(), bzM});
+                model.addBoolOr(new Literal[] {xf, yf, zf});
 
-                model.addEquality(bxG, model.falseLiteral()).onlyEnforceIf(bY);
-                model.addEquality(bxL, model.falseLiteral()).onlyEnforceIf(bY);
-                model.addEquality(bxM, model.falseLiteral()).onlyEnforceIf(bY);
-                model.addEquality(bxG, model.falseLiteral()).onlyEnforceIf(bZ);
-                model.addEquality(bxL, model.falseLiteral()).onlyEnforceIf(bZ);
-                model.addEquality(bxM, model.falseLiteral()).onlyEnforceIf(bZ);
+
+                // model.addEquality(xf, model.trueLiteral()).onlyEnforceIf(bX);
+                // model.addEquality(xf, model.trueLiteral()).onlyEnforceIf(bZ);
+
+
+
+                // model.addEquality(bxG, model.falseLiteral()).onlyEnforceIf(bY);
+                // model.addEquality(bxL, model.falseLiteral()).onlyEnforceIf(bY);
+                // model.addEquality(bxM, model.falseLiteral()).onlyEnforceIf(bY);
+                // model.addEquality(bxG, model.falseLiteral()).onlyEnforceIf(bZ);
+                // model.addEquality(bxL, model.falseLiteral()).onlyEnforceIf(bZ);
+                // model.addEquality(bxM, model.falseLiteral()).onlyEnforceIf(bZ);
                 
-                model.addEquality(byG, model.falseLiteral()).onlyEnforceIf(bX);
-                model.addEquality(byL, model.falseLiteral()).onlyEnforceIf(bX);
-                model.addEquality(byM, model.falseLiteral()).onlyEnforceIf(bX);
-                model.addEquality(byG, model.falseLiteral()).onlyEnforceIf(bZ);
-                model.addEquality(byL, model.falseLiteral()).onlyEnforceIf(bZ);
-                model.addEquality(byM, model.falseLiteral()).onlyEnforceIf(bZ);
+                // model.addEquality(byG, model.falseLiteral()).onlyEnforceIf(bX);
+                // model.addEquality(byL, model.falseLiteral()).onlyEnforceIf(bX);
+                // model.addEquality(byM, model.falseLiteral()).onlyEnforceIf(bX);
+                // model.addEquality(byG, model.falseLiteral()).onlyEnforceIf(bZ);
+                // model.addEquality(byL, model.falseLiteral()).onlyEnforceIf(bZ);
+                // model.addEquality(byM, model.falseLiteral()).onlyEnforceIf(bZ);
                 
                 // model.addEquality(bzG, model.falseLiteral()).onlyEnforceIf(bX);
                 // model.addEquality(bzL, model.falseLiteral()).onlyEnforceIf(bX);
@@ -277,6 +296,7 @@ public class LoadTruck2 {
             System.out.print("G:" + solver.booleanValue(glm[0]));
             System.out.print("L:" + solver.booleanValue(glm[1]));
             System.out.println("M:" + solver.booleanValue(glm[2]));
+            System.out.println("F:" + solver.booleanValue(glm[3]));
             System.out.println("=========================");
             System.out.println();
         }
